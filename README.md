@@ -10,7 +10,7 @@ First, fill in the required fields in the example.env and rename it to .env.loca
 SUPABASE_URL=
 SUPABASE_KEY=
 
-NEXTAUTH_URL=
+NEXTAUTH_URL= eg. http://localhost:3000
 NEXTAUTH_SECRET=
 
 AUTH_GOOGLE_ID=
@@ -21,7 +21,7 @@ STRIPE_WEBHOOK_SECRET=
 
 # PUBLIC VARIABLES
 
-NEXT_PUBLIC_SERVER_URL=
+NEXT_PUBLIC_SERVER_URL= eg. http://localhost:3000
 NEXT_PUBLIC_STRIPE_PUBLIC_KEY=
 ```
 
