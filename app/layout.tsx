@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning={true}>
       <body
-        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative`}
+        className={`${josefin.className} antialiased bg-primary-950 text-primary-100 min-h-screen flex flex-col relative `}
       >
         <Header />
         <div className="flex-1 min-[1px]:px-4 min-[1150px]:px-8 py-12 grid overflow-hidden">

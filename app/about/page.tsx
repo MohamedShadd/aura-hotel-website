@@ -15,11 +15,11 @@ export default async function Page() {
   return (
     <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center overflow-hidden">
       <div className="min-[1px]:col-span-full min-[1150px]:col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+        <h1 className="text-4xl mb-10 text-accent-400 font-medium max-[380px]:w-[85%]">
           Welcome to The Wild Oasis
         </h1>
 
-        <div className="space-y-8">
+        <div className="space-y-8 max-[380px]:w-[85%]">
           <p>
             Where nature&apos;s beauty and comfortable living blend seamlessly.
             Hidden away in the heart of the Italian Dolomites, this is your
@@ -42,7 +42,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="min-[1px]:col-span-full min-[1150px]:col-span-2">
+      <div className="min-[1px]:col-span-full min-[1150px]:col-span-2 max-[380px]:w-[85%]">
         <Image
           src={image1}
           placeholder="blur"
@@ -65,7 +65,7 @@ export default async function Page() {
           Managed by our family since 1962
         </h1>
 
-        <div className="space-y-8">
+        <div className="space-y-8 max-[380px]:w-[85%]">
           <p>
             Since 1962, The Wild Oasis has been a cherished family-run retreat.
             Started by our grandparents, this haven has been nurtured with love
