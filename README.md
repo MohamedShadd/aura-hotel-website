@@ -98,3 +98,5 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+###Built on [Jonas Schmedtmann's React Udemy Course](https://www.udemy.com/course/the-ultimate-react-course)
