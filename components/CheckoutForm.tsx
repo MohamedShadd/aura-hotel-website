@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
 import {
   Elements,
   LinkAuthenticationElement,
@@ -12,13 +14,11 @@ import {
   loadStripe,
   StripePaymentElementOptions,
 } from "@stripe/stripe-js";
-import bookingInterface from "../app/_lib/types/bookingInterface";
-import ReservationPaymentCard from "./ReservationPaymentCard";
-import cabinInterface from "../app/_lib/types/cabinInterface";
-import { Button } from "@/components/ui/button";
 import { FormEvent, useState } from "react";
+import bookingInterface from "../types/bookingInterface";
+import cabinInterface from "../types/cabinInterface";
+import ReservationPaymentCard from "./ReservationPaymentCard";
 import SpinnerMini from "./SpinnerMini";
-import { useToast } from "@/components/ui/use-toast";
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 

@@ -1,9 +1,8 @@
+import userInterface from "@/types/userInterface"
 import NextAuth from "next-auth"
 import Google from "next-auth/providers/google"
 import { NextRequest } from "next/server"
 import { createGuest, getGuest } from "./api"
-import { redirect } from "next/navigation"
-import userInterface from "@/app/_lib/types/userInterface"
 
 
 const authConfig = {

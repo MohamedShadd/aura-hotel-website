@@ -12,11 +12,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { useToast } from "@/components/ui/use-toast";
-import { BanknotesIcon, TrashIcon } from "@heroicons/react/24/solid";
-import { useTransition } from "react";
-import SpinnerMini from "./SpinnerMini";
-import bookingInterface from "../app/_lib/types/bookingInterface";
+import { BanknotesIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { useTransition } from "react";
+import bookingInterface from "../types/bookingInterface";
+import SpinnerMini from "./SpinnerMini";
 
 function PayReservation({
   bookingId,

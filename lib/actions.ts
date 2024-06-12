@@ -1,12 +1,12 @@
 "use server"
 
+import bookingInterface from "@/types/bookingInterface"
+import settingsInterface from "@/types/settingsInterface"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { getBooking, getSettings } from "./api"
 import { auth, signIn, signOut } from "./auth"
 import { supabase } from "./supabase"
-import bookingInterface from "./types/bookingInterface"
-import settingsInterface from "./types/settingsInterface"
 
 export async function updateGuest(formData: FormData | any) {
     const session: any = await auth()

@@ -1,8 +1,8 @@
 "use client";
 
+import { useReservation } from "@/context/ReservationContext";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { format } from "date-fns";
-import { useReservation } from "@/app/_lib/context/ReservationContext";
 
 function ReservationReminder() {
   // CHANGE

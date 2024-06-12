@@ -1,8 +1,7 @@
-import bookingInterface from "@/app/_lib/types/bookingInterface";
-import ReservationCard from "@/components/ReservationCard";
-import { getBookings } from "@/app/_lib/api";
-import { auth } from "@/app/_lib/auth";
 import ReservationList from "@/components/ReservationList";
+import { getBookings } from "@/lib/api";
+import { auth } from "@/lib/auth";
+import bookingInterface from "@/types/bookingInterface";
 
 export const metadata = {
   title: "Reservations",

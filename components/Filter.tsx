@@ -1,8 +1,8 @@
 "use client";
 
+import { filterType } from "@/lib/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React from "react";
-import { filterType } from "@/app/_lib/types";
 
 export default function Filter() {
   const searchParams = useSearchParams();

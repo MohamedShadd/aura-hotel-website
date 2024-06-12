@@ -1,9 +1,8 @@
-import Image from "next/image";
-import React from "react";
+import { getCabins } from "@/lib/api";
 import image1 from "@/public/about-1.jpg";
 import image2 from "@/public/about-2.jpg";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
-import { getCabins } from "@/app/_lib/api";
+import cabinInterface from "@/types/cabinInterface";
+import Image from "next/image";
 
 export const metadata = {
   title: "About",

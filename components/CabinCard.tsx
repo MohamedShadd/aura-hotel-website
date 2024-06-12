@@ -1,5 +1,5 @@
+import cabinInterface from "@/types/cabinInterface";
 import { UsersIcon } from "@heroicons/react/24/solid";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
 import Image from "next/image";
 import Link from "next/link";
 

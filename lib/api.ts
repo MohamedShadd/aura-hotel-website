@@ -1,10 +1,8 @@
+import cabinInterface from "@/types/cabinInterface";
+import settingsInterface from "@/types/settingsInterface";
 import { eachDayOfInterval } from "date-fns";
-import { supabase } from "./supabase";
 import { notFound } from "next/navigation";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
-import settingsInterface from "@/app/_lib/types/settingsInterface";
-
-
+import { supabase } from "./supabase";
 
 export async function getCabin(id: number) {
   const { data, error } = await supabase
@@ -12,9 +10,6 @@ export async function getCabin(id: number) {
     .select("*")
     .eq("id", id)
     .single();
-
-  // For testing
-  // await new Promise((res) => setTimeout(res, 1000));
 
   if (error) {
     console.error(error);
@@ -34,7 +29,6 @@ export async function getCabinPrice(id: number) {
     console.error(error);
   }
 
-
   return data;
 }
 
@@ -52,7 +46,6 @@ export const getCabins = async function () {
   return data;
 };
 
-// Guests are uniquely identified by their email address
 export async function getGuest(email: string) {
   const { data, error } = await supabase
     .from("guests")
@@ -60,7 +53,6 @@ export async function getGuest(email: string) {
     .eq("email", email)
     .single();
 
-  // No error here! We handle the possibility of no guest in the sign in callback
   return data;
 }
 
@@ -82,7 +74,6 @@ export async function getBooking(id: number) {
 export async function getBookings(guestId: number) {
   const { data, error, count } = await supabase
     .from("bookings")
-    // We actually also need data on the cabins as well. But let's ONLY take the data that we actually need, in order to reduce downloaded data.
     .select(
       "id, created_at, startDate, endDate, numNights, numGuests, totalPrice, isPaid, guestId, hasBreakfast, cabinId, cabinPrice, paymentId, cabins(name, image)"
     )
@@ -104,7 +95,6 @@ export async function getBookedDatesByCabinId(cabinId: number) {
   today.setUTCHours(0, 0, 0, 0);
   today = today.toISOString();
 
-  // Getting all bookings
   const { data, error } = await supabase
     .from("bookings")
     .select("*")
@@ -116,7 +106,6 @@ export async function getBookedDatesByCabinId(cabinId: number) {
     throw new Error("Bookings could not get loaded");
   }
 
-  // Converting to actual dates to be displayed in the date picker
   const bookedDates = data
     .map((booking) => {
       return eachDayOfInterval({
@@ -154,9 +143,6 @@ export async function getCountries() {
   }
 }
 
-/////////////
-// CREATE
-
 export async function createGuest(newGuest: any) {
   const { data, error } = await supabase.from("guests").insert([newGuest]);
 
@@ -167,66 +153,3 @@ export async function createGuest(newGuest: any) {
 
   return data;
 }
-
-// export async function createBooking(newBooking: any) {
-//   const { data, error } = await supabase
-//     .from("bookings")
-//     .insert([newBooking])
-//     // So that the newly created object gets returned!
-//     .select()
-//     .single();
-
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Booking could not be created");
-//   }
-
-//   return data;
-// }
-
-/////////////
-// UPDATE
-
-// // The updatedFields is an object which should ONLY contain the updated data
-// export async function updateGuest(id: number, updatedFields: any) {
-//   const { data, error } = await supabase
-//     .from("guests")
-//     .update(updatedFields)
-//     .eq("id", id)
-//     .select()
-//     .single();
-
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Guest could not be updated");
-//   }
-//   return data;
-// }
-
-// export async function updateBooking(id: number, updatedFields: any) {
-//   const { data, error } = await supabase
-//     .from("bookings")
-//     .update(updatedFields)
-//     .eq("id", id)
-//     .select()
-//     .single();
-
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Booking could not be updated");
-//   }
-//   return data;
-// }
-
-// /////////////
-// // DELETE
-
-// export async function deleteBooking(id: number) {
-//   const { data, error } = await supabase.from("bookings").delete().eq("id", id);
-
-//   if (error) {
-//     console.error(error);
-//     throw new Error("Booking could not be deleted");
-//   }
-//   return data;
-// }

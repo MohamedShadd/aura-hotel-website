@@ -1,8 +1,7 @@
 import UpdateBookingForm from "@/components/UpdateBookingForm";
-import { updateBooking } from "@/app/_lib/actions";
-import { getBooking, getCabin } from "@/app/_lib/api";
-import bookingInterface from "@/app/_lib/types/bookingInterface";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
+import { getBooking, getCabin } from "@/lib/api";
+import bookingInterface from "@/types/bookingInterface";
+import cabinInterface from "@/types/cabinInterface";
 
 export default async function Page({
   params,

@@ -1,7 +1,3 @@
-import React from "react";
-import { auth } from "@/app/_lib/auth";
-import { getBookings } from "../_lib/api";
-import bookingInterface from "../_lib/types/bookingInterface";
 import {
   Table,
   TableBody,
@@ -11,6 +7,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getBookings } from "@/lib/api";
+import { auth } from "@/lib/auth";
 
 export const metadata = {
   title: "Guest Area",
@@ -26,8 +24,8 @@ export default async function Page() {
         Welcome, {session?.user?.name}
       </h2>
       <h3>Recent Transactions</h3>
-      <div className="">
-        <Table className="overflow-x-scroll">
+      <div className="overflow-x-scroll max-w-[88%]">
+        <Table className="">
           <TableCaption>A list of your recent transactions.</TableCaption>
           <TableHeader>
             <TableRow>

@@ -1,22 +1,18 @@
 "use client";
 
+import SignOutButton from "@/components/SignOutButton";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import {
   CalendarDaysIcon,
   HomeIcon,
   UserIcon,
 } from "@heroicons/react/24/solid";
-import SignOutButton from "@/components/SignOutButton";
 import Link from "next/link";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
 import { usePathname } from "next/navigation";
 
 const navLinks: {

@@ -1,6 +1,6 @@
 "use client";
+import { dateRange } from "@/lib/types";
 import { createContext, useContext, useState } from "react";
-import { dateRange } from "@/app/_lib/types";
 
 const ReservationContext = createContext<any>({});
 const initialState = { from: undefined, to: undefined };

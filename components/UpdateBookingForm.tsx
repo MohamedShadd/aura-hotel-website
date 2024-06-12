@@ -1,10 +1,9 @@
 "use client";
 
-import React from "react";
-import { updateBooking } from "@/app/_lib/actions";
-import bookingInterface from "@/app/_lib/types/bookingInterface";
 import { useToast } from "@/components/ui/use-toast";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
+import { updateBooking } from "@/lib/actions";
+import bookingInterface from "@/types/bookingInterface";
+import cabinInterface from "@/types/cabinInterface";
 import SubmitButton from "./SubmitButton";
 
 export default function UpdateBookingForm({

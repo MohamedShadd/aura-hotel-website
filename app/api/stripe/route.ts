@@ -1,6 +1,6 @@
 
-import { getBooking } from "@/app/_lib/api"
-import { supabase } from "@/app/_lib/supabase"
+import { getBooking } from "@/lib/api"
+import { supabase } from "@/lib/supabase"
 import { revalidatePath } from "next/cache"
 import { NextRequest, NextResponse } from "next/server"
 import Stripe from "stripe"

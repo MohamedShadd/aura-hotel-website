@@ -1,17 +1,17 @@
 "use client";
 
-import { useReservation } from "@/app/_lib/context/ReservationContext";
-import { createBooking } from "@/app/_lib/actions";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
+import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
+import { useReservation } from "@/context/ReservationContext";
+import { createBooking } from "@/lib/actions";
+import cabinInterface from "@/types/cabinInterface";
 import { differenceInDays } from "date-fns";
 import { User } from "next-auth";
 import Image from "next/image";
-import bookingInterface from "../app/_lib/types/bookingInterface";
-import settingsInterface from "../app/_lib/types/settingsInterface";
-import { Checkbox } from "@/components/ui/checkbox";
-import SubmitButton from "./SubmitButton";
 import { useState } from "react";
+import bookingInterface from "../types/bookingInterface";
+import settingsInterface from "../types/settingsInterface";
+import SubmitButton from "./SubmitButton";
 
 export default function ReservationForm({
   cabin,

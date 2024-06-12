@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import SignInButton from "@/components/SignInButton";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Login",

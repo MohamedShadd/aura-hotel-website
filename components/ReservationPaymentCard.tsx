@@ -1,12 +1,7 @@
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
-import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
-import DeleteReservation from "./DeleteReservation";
-import bookingInterface from "@/app/_lib/types/bookingInterface";
+import bookingInterface from "@/types/bookingInterface";
+import { format, formatDistance, isToday, parseISO } from "date-fns";
 import Image from "next/image";
-import Link from "next/link";
-import PayReservation from "./PayReservation";
-import { getCabin } from "../app/_lib/api";
-import cabinInterface from "../app/_lib/types/cabinInterface";
+import cabinInterface from "../types/cabinInterface";
 
 export const formatDistanceFromNow = (dateStr: string) =>
   formatDistance(parseISO(dateStr), new Date(), {

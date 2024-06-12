@@ -1,7 +1,7 @@
 import ReservationPaymentCard from "@/components/ReservationPaymentCard";
-import { getBooking, getCabin } from "@/app/_lib/api";
-import bookingInterface from "@/app/_lib/types/bookingInterface";
 import { Button } from "@/components/ui/button";
+import { getBooking, getCabin } from "@/lib/api";
+import bookingInterface from "@/types/bookingInterface";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Stripe from "stripe";

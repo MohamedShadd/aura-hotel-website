@@ -1,10 +1,10 @@
-import { auth } from "@/app/_lib/auth";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { auth } from "@/lib/auth";
 import { Bars3BottomRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";

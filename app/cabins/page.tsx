@@ -1,9 +1,9 @@
-import React, { Suspense } from "react";
 import CabinList from "@/components/CabinList";
-import Spinner from "@/components/Spinner";
 import Filter from "@/components/Filter";
-import { filterType } from "@/app/_lib/types";
 import ReservationReminder from "@/components/ReservationReminder";
+import Spinner from "@/components/Spinner";
+import { filterType } from "@/lib/types";
+import { Suspense } from "react";
 
 export const metadata = {
   title: "Cabins",

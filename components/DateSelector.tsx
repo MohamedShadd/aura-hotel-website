@@ -1,7 +1,7 @@
 "use client";
-import { useReservation } from "@/app/_lib/context/ReservationContext";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
-import settingsInterface from "@/app/_lib/types/settingsInterface";
+import { useReservation } from "@/context/ReservationContext";
+import cabinInterface from "@/types/cabinInterface";
+import settingsInterface from "@/types/settingsInterface";
 import {
   differenceInDays,
   isPast,

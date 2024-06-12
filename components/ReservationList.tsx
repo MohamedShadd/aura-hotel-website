@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useOptimistic } from "react";
-import bookingInterface from "@/app/_lib/types/bookingInterface";
+import { deleteBooking } from "@/lib/actions";
+import bookingInterface from "@/types/bookingInterface";
+import { useOptimistic } from "react";
 import ReservationCard from "./ReservationCard";
-import { deleteBooking } from "@/app/_lib/actions";
 
 export default function ReservationList({
   bookings,

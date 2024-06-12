@@ -1,6 +1,6 @@
-import cabinInterface from "@/app/_lib/types/cabinInterface";
-import { getBookedDatesByCabinId, getSettings } from "@/app/_lib/api";
-import { auth } from "@/app/_lib/auth";
+import { getBookedDatesByCabinId, getSettings } from "@/lib/api";
+import { auth } from "@/lib/auth";
+import cabinInterface from "@/types/cabinInterface";
 import DateSelector from "./DateSelector";
 import LoginMessage from "./LoginMessage";
 import ReservationForm from "./ReservationForm";

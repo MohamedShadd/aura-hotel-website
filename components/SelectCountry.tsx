@@ -1,5 +1,5 @@
-import { getCountries } from "@/app/_lib/api";
-import countryInterface from "@/app/_lib/types/countryInterface";
+import { getCountries } from "@/lib/api";
+import countryInterface from "@/types/countryInterface";
 
 // Let's imagine your colleague already built this component 😃
 

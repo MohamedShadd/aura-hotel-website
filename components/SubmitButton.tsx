@@ -1,6 +1,6 @@
+import React from "react";
 import { useFormStatus } from "react-dom";
 import SpinnerMini from "./SpinnerMini";
-import React from "react";
 
 export default function SubmitButton({
   children,

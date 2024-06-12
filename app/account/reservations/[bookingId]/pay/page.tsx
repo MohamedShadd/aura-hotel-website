@@ -1,8 +1,8 @@
 import CheckoutForm from "@/components/CheckoutForm";
-import { getBooking, getCabin } from "@/app/_lib/api";
-import { auth } from "@/app/_lib/auth";
-import bookingInterface from "@/app/_lib/types/bookingInterface";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
+import { getBooking, getCabin } from "@/lib/api";
+import { auth } from "@/lib/auth";
+import bookingInterface from "@/types/bookingInterface";
+import cabinInterface from "@/types/cabinInterface";
 import { redirect } from "next/navigation";
 import Stripe from "stripe";
 

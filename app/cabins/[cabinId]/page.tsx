@@ -1,16 +1,8 @@
 import Cabin from "@/components/Cabin";
 import Reservation from "@/components/Reservation";
 import Spinner from "@/components/Spinner";
-import TextExpander from "@/components/TextExpander";
-import cabinInterface from "@/app/_lib/types/cabinInterface";
-import {
-  getBookedDatesByCabinId,
-  getCabin,
-  getCabins,
-  getSettings,
-} from "@/app/_lib/api";
-import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
+import { getCabin, getCabins } from "@/lib/api";
+import cabinInterface from "@/types/cabinInterface";
 import { Suspense } from "react";
 
 export async function generateMetadata({

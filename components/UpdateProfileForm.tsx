@@ -1,12 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
-import Image from "next/image";
-import guestInterface from "@/app/_lib/types/guestInterface";
-import { updateGuest } from "@/app/_lib/actions";
-import { useFormStatus } from "react-dom";
-import SpinnerMini from "./SpinnerMini";
 import { useToast } from "@/components/ui/use-toast";
+import { updateGuest } from "@/lib/actions";
+import guestInterface from "@/types/guestInterface";
+import Image from "next/image";
 import SubmitButton from "./SubmitButton";
 
 export default function UpdateProfileForm({
