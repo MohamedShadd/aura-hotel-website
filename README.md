@@ -25,7 +25,67 @@ NEXT_PUBLIC_SERVER_URL=
 NEXT_PUBLIC_STRIPE_PUBLIC_KEY=
 ```
 
-then run the development server:
+Secondly, you need to create a [supabase](https://supabase.com/) database and create the following tables:
+
+Bookings:
+
+| Name         | Format                      | Type    |
+| ------------ | --------------------------- | ------- |
+| id           | bigint                      | number  |
+| created_at   | timestamp with time zone    | string  |
+| startDate    | timestamp without time zone | string  |
+| endDate      | timestamp without time zone | string  |
+| numNights    | smallint                    | number  |
+| numGuests    | smallint                    | number  |
+| cabinPrice   | real                        | number  |
+| extrasPrice  | real                        | number  |
+| totalPrice   | real                        | number  |
+| status       | text                        | string  |
+| hasBreakfast | boolean                     | boolean |
+| isPaid       | boolean                     | boolean |
+| observations | text                        | string  |
+| cabinId      | bigint                      | number  |
+| guestId      | bigint                      | number  |
+| paymentId    | text                        | string  |
+
+cabins:
+
+| Name         | Format                   | Type   |
+| ------------ | ------------------------ | ------ |
+| id           | bigint                   | number |
+| created_at   | timestamp with time zone | string |
+| name         | text                     | string |
+| maxCapacity  | smallint                 | number |
+| regularPrice | smallint                 | number |
+| discount     | smallint                 | number |
+| description  | text                     | string |
+| image        | text                     | string |
+
+Guests:
+
+| Name        | Format                   | Type   |
+| ----------- | ------------------------ | ------ |
+| id          | bigint                   | number |
+| created_at  | timestamp with time zone | string |
+| fullName    | text                     | string |
+| email       | text                     | string |
+| nationalID  | text                     | string |
+| nationality | text                     | string |
+| countryFlag | text                     | string |
+| image       | text                     | string |
+
+Settings:
+
+| Name                | Format                   | Type   |
+| ------------------- | ------------------------ | ------ |
+| id                  | bigint                   | number |
+| created_at          | timestamp with time zone | string |
+| minBookingLength    | smallint                 | number |
+| maxBookingLength    | smallint                 | number |
+| maxGuestsPerBooking | smallint                 | number |
+| breakfastPrice      | real                     | number |
+
+Finally, run the development server:
 
 ```bash
 npm run dev
