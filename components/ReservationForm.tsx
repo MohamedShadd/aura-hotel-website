@@ -9,8 +9,8 @@ import { differenceInDays } from "date-fns";
 import { User } from "next-auth";
 import Image from "next/image";
 import { useState } from "react";
-import bookingInterface from "../types/bookingInterface";
-import settingsInterface from "../types/settingsInterface";
+import bookingInterface from "@/types/bookingInterface";
+import settingsInterface from "@/types/settingsInterface";
 import SubmitButton from "./SubmitButton";
 
 export default function ReservationForm({

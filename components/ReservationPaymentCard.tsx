@@ -1,7 +1,7 @@
 import bookingInterface from "@/types/bookingInterface";
 import { format, formatDistance, isToday, parseISO } from "date-fns";
 import Image from "next/image";
-import cabinInterface from "../types/cabinInterface";
+import cabinInterface from "@/types/cabinInterface";
 
 export const formatDistanceFromNow = (dateStr: string) =>
   formatDistance(parseISO(dateStr), new Date(), {

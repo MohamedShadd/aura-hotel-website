@@ -15,7 +15,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { BanknotesIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useTransition } from "react";
-import bookingInterface from "../types/bookingInterface";
+import bookingInterface from "@/types/bookingInterface";
 import SpinnerMini from "./SpinnerMini";
 
 function PayReservation({

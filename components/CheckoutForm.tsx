@@ -15,8 +15,8 @@ import {
   StripePaymentElementOptions,
 } from "@stripe/stripe-js";
 import { FormEvent, useState } from "react";
-import bookingInterface from "../types/bookingInterface";
-import cabinInterface from "../types/cabinInterface";
+import bookingInterface from "@/types/bookingInterface";
+import cabinInterface from "@/types/cabinInterface";
 import ReservationPaymentCard from "./ReservationPaymentCard";
 import SpinnerMini from "./SpinnerMini";
 
