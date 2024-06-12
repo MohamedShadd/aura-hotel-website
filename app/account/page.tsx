@@ -24,15 +24,14 @@ export default async function Page() {
         Welcome, {session?.user?.name}
       </h2>
       <h3>Recent Transactions</h3>
-      <div className="overflow-x-scroll max-w-[88%]">
-        <Table className="">
+      <div className="max-[600px]:overflow-x-scroll">
+        <Table>
           <TableCaption>A list of your recent transactions.</TableCaption>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[100px]">Booking</TableHead>
+              <TableHead>Booking</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Breakfast</TableHead>
-              <TableHead>Transaction</TableHead>
               <TableHead className="text-right">Amount</TableHead>
             </TableRow>
           </TableHeader>
@@ -44,7 +43,6 @@ export default async function Page() {
                 <TableCell>
                   {transaction.hasBreakfast ? "True" : "False"}
                 </TableCell>
-                <TableCell>{transaction.paymentId}</TableCell>
                 <TableCell className="text-right">
                   ${transaction.totalPrice}
                 </TableCell>

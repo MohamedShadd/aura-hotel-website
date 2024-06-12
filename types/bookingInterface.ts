@@ -13,6 +13,7 @@ interface booking {
   created_at?: string;
   cabinPrice?: number
   cabinId?: number
+  extrasPrice?: number;
   observations?: string;
   cabins?: { name: string; image: string }
   paymentId?: string

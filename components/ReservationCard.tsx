@@ -62,12 +62,16 @@ function ReservationCard({
           )}
         </div>
 
-        <p className="text-lg text-primary-300">
-          {format(new Date(startDate), "EEE, MMM dd yyyy")} (
-          {isToday(new Date(startDate))
-            ? "Today"
-            : formatDistanceFromNow(startDate)}
-          ) &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
+        <p className="text-lg max-[650px]:text-sm text-primary-300">
+          {format(new Date(startDate), "EEE, MMM dd yyyy")}{" "}
+          <span className="max-[650px]:hidden">
+            (
+            {isToday(new Date(startDate))
+              ? "Today"
+              : formatDistanceFromNow(startDate)}
+            )
+          </span>
+          &mdash; {format(new Date(endDate), "EEE, MMM dd yyyy")}
         </p>
 
         <div className="flex gap-5 mt-auto items-baseline">
@@ -75,18 +79,18 @@ function ReservationCard({
             ${totalPrice}
           </p>
           <p className="max-[650px]:hidden text-primary-300">&bull;</p>
-          <p className="text-lg text-primary-300">
+          <p className="text-lg text-primary-300 max-[650px]:text-sm">
             {numGuests} guest{numGuests > 1 && "s"}
           </p>
           {isPaid ? (
             <>
               <p className="max-[650px]:hidden text-primary-300">&bull;</p>
-              <p className="text-lg text-green-300">Paid</p>
+              <p className="text-lg max-[650px]:text-sm text-green-300">Paid</p>
             </>
           ) : (
             <>
               <p className="max-[650px]:hidden text-primary-300">&bull;</p>
-              <p className="text-lg text-red-300">Unpaid</p>
+              <p className="text-lg max-[650px]:text-sm text-red-300">Unpaid</p>
             </>
           )}
           <p className="ml-auto text-sm text-primary-400">
@@ -104,7 +108,7 @@ function ReservationCard({
               className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
             >
               <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
-              <span className="mt-1">Edit</span>
+              <span className="mt-1 max-[500px]:hidden">Edit</span>
             </Link>
             {!isPaid && (
               <DeleteReservation onDelete={onDelete} bookingId={id} />

@@ -1,7 +1,9 @@
 import bookingInterface from "@/types/bookingInterface";
+import cabinInterface from "@/types/cabinInterface";
+import { UsersIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isToday, parseISO } from "date-fns";
 import Image from "next/image";
-import cabinInterface from "@/types/cabinInterface";
+import Link from "next/link";
 
 export const formatDistanceFromNow = (dateStr: string) =>
   formatDistance(parseISO(dateStr), new Date(), {
@@ -15,59 +17,85 @@ export default async function ReservationPaymentCard({
   booking: bookingInterface;
   cabin: cabinInterface;
 }) {
-  // const cabin = await getCabin(booking.cabinId as number);
   return (
-    <div className="flex border border-primary-800">
-      <div className="relative h-32 aspect-square">
+    <div className="flex border-primary-800 border">
+      <div className="min-[1px]:hidden min-[1150px]:block flex-1 relative aspect-square h-auto">
         <Image
-          src={cabin.image as string}
-          alt={`Cabin ${cabin.name}`}
           fill
+          src={cabin.image}
+          alt={`Cabin ${cabin.name}`}
           className="object-cover border-r border-primary-800"
         />
-        <p className="z-10 relative min-[650px]:hidden text-xl font-semibold text-accent-50 w-fit bg-primary-900/70 rounded-xl">
-          ${booking.totalPrice}
-        </p>
       </div>
 
-      <div className="flex-grow px-6 py-3 flex flex-col">
-        <h3 className="text-xl font-semibold">
-          {booking.numNights} nights in Cabin {cabin.name}
-        </h3>
-        <p className="text-lg text-primary-300">
-          {format(new Date(booking.startDate!), "EEE, MMM dd yyyy")} (
-          {isToday(new Date(booking.startDate!))
-            ? "Today"
-            : formatDistanceFromNow(booking.startDate!)}
-          ) &mdash; {format(new Date(booking.endDate!), "EEE, MMM dd yyyy")}
-        </p>
-
-        <div className="flex gap-5 mt-auto items-baseline">
-          <p className="max-[650px]:hidden text-xl font-semibold text-accent-400">
-            ${booking.totalPrice}
-          </p>
-          <p className="max-[650px]:hidden text-primary-300">&bull;</p>
+      <div className="flex-grow min-[1150px]:w-[70%]">
+        <div className="aspect-square hidden max-[1150px]:block relative">
+          <Image
+            fill
+            src={cabin.image}
+            alt={`Cabin ${cabin.name}`}
+            className="object-cover border-r border-primary-800"
+          />
+        </div>
+        <div className="pt-5 pb-4 px-7 bg-primary-950">
+          <h3 className="text-accent-500 font-semibold text-2xl mb-3">
+            {booking.numNights} nights in Cabin {cabin.name}
+          </h3>
           <p className="text-lg text-primary-300">
-            {booking.numGuests} guest{booking.numGuests! > 1 && "s"}
+            {format(new Date(booking.startDate!), "EEE, MMM dd yyyy")} (
+            {isToday(new Date(booking.startDate!))
+              ? "Today"
+              : formatDistanceFromNow(booking.startDate!)}
+            ) &mdash; {format(new Date(booking.endDate!), "EEE, MMM dd yyyy")}
           </p>
-          {booking.hasBreakfast && (
-            <>
-              <p className="max-[650px]:hidden text-primary-300">&bull;</p>
-              <p className="text-lg text-primary-300">breakfast included</p>
-            </>
-          )}
-          <p className="ml-auto text-sm text-primary-400">
-            Booked{" "}
-            {format(new Date(booking.created_at!), "EEE, MMM dd yyyy, p")}
+
+          <p className="flex gap-3 justify-end items-baseline">
+            {cabin.discount! > 0 ? (
+              <>
+                <span className="text-3xl font-[350]">
+                  ${booking.cabinPrice} + {booking.extrasPrice} (Breakfast)
+                </span>
+                <span className="line-through font-semibold text-primary-600">
+                  ${Number(cabin.regularPrice) * Number(booking.numNights)} +{" "}
+                  {booking.extrasPrice}
+                </span>
+              </>
+            ) : (
+              <span className="text-3xl font-[350]">${booking.totalPrice}</span>
+            )}
+            {booking.hasBreakfast && (
+              <span className="text-primary-200">with breakfast</span>
+            )}
           </p>
-          {booking.paymentId && (
-            <>
-              <p className="max-[650px]:hidden text-primary-300">&bull;</p>
-              <p className="text-sm text-primary-400">
-                Transaction: {booking.paymentId}
-              </p>
-            </>
-          )}
+        </div>
+
+        <div className="bg-primary-950 border-t border-t-primary-800 text-right flex max-[1150px]:flex-col justify-between pl-5">
+          <div className="flex gap-3  max-[1150px]:items-start items-center max-[1150px]:flex-col">
+            <p className="text-lg text-primary-200 flex gap-2  max-[1150px]:m-2">
+              <UsersIcon className="h-5 w-5 text-primary-600" />
+              Reservation for{" "}
+              <span className="font-bold">{booking.numGuests}</span> guest
+              {booking.numGuests! > 1 && "s"}
+            </p>
+            <p className="text-sm text-primary-400">
+              Booked{" "}
+              {format(new Date(booking.created_at!), "EEE, MMM dd yyyy, p")}
+            </p>
+            {booking.paymentId && (
+              <div className="flex gap-2 items-center">
+                <p className="max-[1150px]:hidden text-primary-300">&bull;</p>
+                <p className="text-sm text-primary-400">
+                  Transaction: {booking.paymentId}
+                </p>
+              </div>
+            )}
+          </div>
+          <Link
+            href={`/account`}
+            className="min-[1px]:w-full min-[500px]:w-auto py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
+          >
+            Recent Transations &rarr;
+          </Link>
         </div>
       </div>
     </div>
