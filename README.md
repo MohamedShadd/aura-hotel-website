@@ -1,4 +1,4 @@
-This is a hotel website example, made using nextjs, supabase, stripe, shadcn/ui and tailwind.
+This is a hotel website example, made using nextjs, supabase, stripe, shadcn/ui and tailwind. You can check out [the live demo here](https://aura.nebuladev.cc)
 
 ## Getting Started
 
