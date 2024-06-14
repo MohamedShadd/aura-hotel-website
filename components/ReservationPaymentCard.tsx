@@ -1,9 +1,11 @@
+"use client";
 import bookingInterface from "@/types/bookingInterface";
 import cabinInterface from "@/types/cabinInterface";
 import { UsersIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isToday, parseISO } from "date-fns";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const formatDistanceFromNow = (dateStr: string) =>
   formatDistance(parseISO(dateStr), new Date(), {
@@ -17,6 +19,8 @@ export default function ReservationPaymentCard({
   booking: bookingInterface;
   cabin: cabinInterface;
 }) {
+  const pathname = usePathname();
+
   return (
     <div className="flex border-primary-800 border">
       <div className="min-[1px]:hidden min-[1150px]:block flex-1 relative aspect-square h-auto">
@@ -53,11 +57,12 @@ export default function ReservationPaymentCard({
             {cabin.discount! > 0 ? (
               <>
                 <span className="text-3xl font-[350]">
-                  ${booking.cabinPrice} + {booking.extrasPrice} (Breakfast)
+                  ${booking.totalPrice}
                 </span>
                 <span className="line-through font-semibold text-primary-600">
-                  ${Number(cabin.regularPrice) * Number(booking.numNights)} +{" "}
-                  {booking.extrasPrice}
+                  $
+                  {Number(cabin.regularPrice * Number(booking.numNights)) +
+                    Number(booking.extrasPrice)}
                 </span>
               </>
             ) : (
@@ -81,21 +86,15 @@ export default function ReservationPaymentCard({
               Booked{" "}
               {format(new Date(booking.created_at!), "EEE, MMM dd yyyy, p")}
             </p>
-            {booking.paymentId && (
-              <div className="flex gap-2 items-center">
-                <p className="max-[1150px]:hidden text-primary-300">&bull;</p>
-                <p className="text-sm text-primary-400">
-                  Transaction: {booking.paymentId}
-                </p>
-              </div>
-            )}
           </div>
-          <Link
-            href={`/account`}
-            className="min-[1px]:w-full min-[500px]:w-auto py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
-          >
-            Recent Transations &rarr;
-          </Link>
+          {pathname.split("/").at(1) == "confirmation" && (
+            <Link
+              href={`/account`}
+              className="min-[1px]:w-full min-[500px]:w-auto py-4 px-6 inline-block hover:bg-accent-600 transition-all hover:text-primary-900"
+            >
+              Recent Transations &rarr;
+            </Link>
+          )}
         </div>
       </div>
     </div>

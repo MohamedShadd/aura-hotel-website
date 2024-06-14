@@ -24,6 +24,7 @@ export default function ReservationForm({
 }) {
   // CHANGE
   const [payNow, setPayNow] = useState<boolean>(true);
+  const [hasBreakfast, setHasBreakfast] = useState<boolean>(false);
   const { toast } = useToast();
   const { range, resetRange } = useReservation();
   const { id, maxCapacity, regularPrice, discount } = cabin;
@@ -104,7 +105,11 @@ export default function ReservationForm({
           />
         </div>
         <div className="space-y-2 items-top flex space-x-2">
-          <Checkbox id="hasBreakfast" name="hasBreakfast" />
+          <Checkbox
+            id="hasBreakfast"
+            name="hasBreakfast"
+            onClick={() => setHasBreakfast((e: boolean) => !e)}
+          />
           <div className="grid gap-1.5 leading-none">
             <label
               htmlFor="hasBreakfast"
@@ -135,11 +140,12 @@ export default function ReservationForm({
               Pay now
             </label>
             <p className="text-sm text-muted-foreground">
-              Do you wish to pay the amount now of
+              Do you wish to pay the
               {!!cabinPrice &&
-                `, total amount
+                ` total amount
               of $${Number(
-                cabinPrice + Number(breakfastPrice * numNights)
+                cabinPrice +
+                  Number(hasBreakfast ? breakfastPrice * numNights : 0)
               )}`}{" "}
               now?
             </p>

@@ -36,7 +36,7 @@ export async function updateGuest(formData: FormData | any) {
 }
 
 export async function createBooking(bookingData: bookingInterface, formData: FormData | any) {
-    console.log(formData)
+
     const session: any = await auth()
     if (!session) throw new Error("You must be logged in")
     if (!Number(bookingData.cabinPrice)) throw new Error("Please select booking dates")
@@ -65,7 +65,7 @@ export async function createBooking(bookingData: bookingInterface, formData: For
         throw new Error("Booking could not be created");
     revalidatePath(`/cabins/${bookingData.cabinId}`)
 
-    console.log(Boolean(formData.get('payNow')))
+
     if (formData.get('payNow') == 'on') redirect(`/account/reservations/${data.id}/pay`)
 
     redirect("/confirmation")
