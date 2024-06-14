@@ -8,6 +8,7 @@ import {
   isSameDay,
   isWithinInterval,
 } from "date-fns";
+import { useEffect } from "react";
 import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 
@@ -43,6 +44,12 @@ export default function DateSelector({
 
   // SETTINGS
   const { minBookingLength, maxBookingLength } = settings;
+
+  useEffect(() => {
+    if (isAlreadyBooked(range, bookedDates)) {
+      resetRange();
+    }
+  }, [range, resetRange, bookedDates]);
 
   return (
     <div className="flex flex-col justify-between mb-5">

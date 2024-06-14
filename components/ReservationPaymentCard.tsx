@@ -10,7 +10,7 @@ export const formatDistanceFromNow = (dateStr: string) =>
     addSuffix: true,
   }).replace("about ", "");
 
-export default async function ReservationPaymentCard({
+export default function ReservationPaymentCard({
   booking,
   cabin,
 }: {
